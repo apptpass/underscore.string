@@ -19,7 +19,7 @@ gulp.task('test', ['browserify'], function() {
 });
 
 gulp.task('browserify', function() {
-  gulp.src(SRC)
+  return gulp.src(SRC)
     .pipe(browserify({
       detectGlobals: true,
       standalone: 'underscore.string'
@@ -34,7 +34,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('bump-in-js', function(semver) {
-  gulp.src(SRC)
+  return gulp.src(SRC)
     .pipe(replace(/(version:?\s\')([\d\.]*)\'/gi, '$1' + semver + "'"))
     .pipe(gulp.dest('./lib'));
 });
