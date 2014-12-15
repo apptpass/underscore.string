@@ -21,6 +21,7 @@ gulp.task('test', ['browserify'], function() {
 gulp.task('browserify', function() {
   gulp.src(SRC)
     .pipe(browserify({
+      detectGlobals: true,
       standalone: 'underscore.string'
     }))
     .pipe(rename('underscore.string.compiled.js'))
