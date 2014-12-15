@@ -3,3 +3,4 @@
 .project
 .tmp_*
 node_modules
+lib/underscore.string.compiled.js
