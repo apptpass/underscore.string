@@ -7,6 +7,7 @@ var gulp = require('gulp-param')(require('gulp'), process.argv),
   rename = require('gulp-rename'),
   browserify = require('gulp-browserify'),
   SRC = 'lib/underscore.string.js',
+  SRC_COMPILED = 'lib/underscore.string.compiled.js',
   DEST = 'dist',
   MIN_FILE = 'underscore.string.min.js',
   TEST_SUITES = ['test/test.html', 'test/test_underscore/index.html'],
@@ -53,7 +54,7 @@ gulp.task('bump', ['bump-in-js'], function(semver) {
 });
 
 gulp.task('build', ['test', 'clean'], function() {
-  return gulp.src(SRC)
+  return gulp.src(SRC_COMPILED)
     .pipe(uglify())
     .pipe(rename(MIN_FILE))
     .pipe(gulp.dest(DEST));
